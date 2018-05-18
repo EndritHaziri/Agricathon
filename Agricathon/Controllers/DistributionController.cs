@@ -9,8 +9,7 @@ namespace Agricathon.Controllers
     public class DistributionController : Controller
     {
         // GET: Distribution
-        // GET: Distribution
-        public ActionResult DistributionMaréchère()
+        public ActionResult DistributionMaraichere()
         {
             return View();
         }
