@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="62e347331f154e8191cf0751f58b7055" Name="Diagram1" ZoomLevel="84" >
+        <EntityTypeShape EntityType="AgricathonModel.Sector" Width="1.5" PointX="6.875" PointY="5.75" />
+        <EntityTypeShape EntityType="AgricathonModel.Provider" Width="1.5" PointX="11.875" PointY="9.875" />
+        <EntityTypeShape EntityType="AgricathonModel.Project" Width="1.5" PointX="12" PointY="5.375" />
+        <EntityTypeShape EntityType="AgricathonModel.LegalForm" Width="1.5" PointX="12.125" PointY="3" />
+        <EntityTypeShape EntityType="AgricathonModel.Activity" Width="1.5" PointX="9.25" PointY="5.75" />
+        <EntityTypeShape EntityType="AgricathonModel.Location" Width="1.5" PointX="16.625" PointY="4.125" />
+        <EntityTypeShape EntityType="AgricathonModel.Website" Width="1.5" PointX="9.375" PointY="8.5" />
+        <EntityTypeShape EntityType="AgricathonModel.Finance" Width="1.5" PointX="14.625" PointY="6.375" />
+        <EntityTypeShape EntityType="AgricathonModel.Specialist" Width="1.5" PointX="17.125" PointY="8.25" />
+        <AssociationConnector Association="AgricathonModel.SectorActivity" />
+        <AssociationConnector Association="AgricathonModel.ActivityProject" />
+        <AssociationConnector Association="AgricathonModel.ProjectWebsite" />
+        <AssociationConnector Association="AgricathonModel.ProjectProvider" />
+        <AssociationConnector Association="AgricathonModel.ProjectLegalForm" />
+        <AssociationConnector Association="AgricathonModel.ProjectLocation" />
+        <AssociationConnector Association="AgricathonModel.ProjectSpecialist" />
+        <AssociationConnector Association="AgricathonModel.ProjectFinance" />
+        <EntityTypeShape EntityType="AgricathonModel.Contact" Width="1.5" PointX="14.75" PointY="9.5" />
+        <AssociationConnector Association="AgricathonModel.ProjectContact" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

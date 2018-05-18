@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AgricathonModelStoreContainer" CdmEntityContainer="AgricathonModelContainer">
+    <EntitySetMapping Name="SectorSet">
+      <EntityTypeMapping TypeName="IsTypeOf(AgricathonModel.Sector)">
+        <MappingFragment StoreEntitySet="SectorSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProviderSet">
+      <EntityTypeMapping TypeName="IsTypeOf(AgricathonModel.Provider)">
+        <MappingFragment StoreEntitySet="ProviderSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProjectSet">
+      <EntityTypeMapping TypeName="IsTypeOf(AgricathonModel.Project)">
+        <MappingFragment StoreEntitySet="ProjectSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+          <ScalarProperty Name="ClosedDate" ColumnName="ClosedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LegalFormSet">
+      <EntityTypeMapping TypeName="IsTypeOf(AgricathonModel.LegalForm)">
+        <MappingFragment StoreEntitySet="LegalFormSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ActivitySet">
+      <EntityTypeMapping TypeName="IsTypeOf(AgricathonModel.Activity)">
+        <MappingFragment StoreEntitySet="ActivitySet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LocationSet">
+      <EntityTypeMapping TypeName="IsTypeOf(AgricathonModel.Location)">
+        <MappingFragment StoreEntitySet="LocationSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WebsiteSet">
+      <EntityTypeMapping TypeName="IsTypeOf(AgricathonModel.Website)">
+        <MappingFragment StoreEntitySet="WebsiteSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FinanceSet">
+      <EntityTypeMapping TypeName="IsTypeOf(AgricathonModel.Finance)">
+        <MappingFragment StoreEntitySet="FinanceSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SpecialistSet">
+      <EntityTypeMapping TypeName="IsTypeOf(AgricathonModel.Specialist)">
+        <MappingFragment StoreEntitySet="SpecialistSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContactSet">
+      <EntityTypeMapping TypeName="IsTypeOf(AgricathonModel.Contact)">
+        <MappingFragment StoreEntitySet="ContactSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="SectorActivity" TypeName="AgricathonModel.SectorActivity" StoreEntitySet="ActivitySet">
+      <EndProperty Name="Sector">
+        <ScalarProperty Name="Id" ColumnName="Sector_Id" />
+      </EndProperty>
+      <EndProperty Name="Activity">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ActivityProject" TypeName="AgricathonModel.ActivityProject" StoreEntitySet="ProjectSet">
+      <EndProperty Name="Activity">
+        <ScalarProperty Name="Id" ColumnName="Activity_Id" />
+      </EndProperty>
+      <EndProperty Name="Project">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProjectWebsite" TypeName="AgricathonModel.ProjectWebsite" StoreEntitySet="WebsiteSet">
+      <EndProperty Name="Project">
+        <ScalarProperty Name="Id" ColumnName="Project_Id" />
+      </EndProperty>
+      <EndProperty Name="Website">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProjectProvider" TypeName="AgricathonModel.ProjectProvider" StoreEntitySet="ProviderSet">
+      <EndProperty Name="Project">
+        <ScalarProperty Name="Id" ColumnName="Project_Id" />
+      </EndProperty>
+      <EndProperty Name="Provider">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProjectLegalForm" TypeName="AgricathonModel.ProjectLegalForm" StoreEntitySet="ProjectSet">
+      <EndProperty Name="LegalForm">
+        <ScalarProperty Name="Id" ColumnName="LegalForm_Id" />
+      </EndProperty>
+      <EndProperty Name="Project">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProjectLocation" TypeName="AgricathonModel.ProjectLocation" StoreEntitySet="ProjectSet">
+      <EndProperty Name="Location">
+        <ScalarProperty Name="Id" ColumnName="Location_Id" />
+      </EndProperty>
+      <EndProperty Name="Project">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProjectSpecialist" TypeName="AgricathonModel.ProjectSpecialist" StoreEntitySet="SpecialistSet">
+      <EndProperty Name="Project">
+        <ScalarProperty Name="Id" ColumnName="Project_Id" />
+      </EndProperty>
+      <EndProperty Name="Specialist">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProjectFinance" TypeName="AgricathonModel.ProjectFinance" StoreEntitySet="FinanceSet">
+      <EndProperty Name="Project">
+        <ScalarProperty Name="Id" ColumnName="Project_Id" />
+      </EndProperty>
+      <EndProperty Name="Finance">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ProjectContact" TypeName="AgricathonModel.ProjectContact" StoreEntitySet="ContactSet">
+      <EndProperty Name="Project">
+        <ScalarProperty Name="Id" ColumnName="Project_Id" />
+      </EndProperty>
+      <EndProperty Name="Contact">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

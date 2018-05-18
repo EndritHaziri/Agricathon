@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AgricathonModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="AgricathonModelStoreContainer">
+    <EntitySet Name="SectorSet" EntityType="AgricathonModel.Store.SectorSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProviderSet" EntityType="AgricathonModel.Store.ProviderSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ProjectSet" EntityType="AgricathonModel.Store.ProjectSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LegalFormSet" EntityType="AgricathonModel.Store.LegalFormSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ActivitySet" EntityType="AgricathonModel.Store.ActivitySet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LocationSet" EntityType="AgricathonModel.Store.LocationSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="WebsiteSet" EntityType="AgricathonModel.Store.WebsiteSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FinanceSet" EntityType="AgricathonModel.Store.FinanceSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SpecialistSet" EntityType="AgricathonModel.Store.SpecialistSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ContactSet" EntityType="AgricathonModel.Store.ContactSet" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="SectorActivity" Association="AgricathonModel.Store.SectorActivity">
+      <End Role="Sector" EntitySet="SectorSet" />
+      <End Role="Activity" EntitySet="ActivitySet" />
+    </AssociationSet>
+    <AssociationSet Name="ActivityProject" Association="AgricathonModel.Store.ActivityProject">
+      <End Role="Activity" EntitySet="ActivitySet" />
+      <End Role="Project" EntitySet="ProjectSet" />
+    </AssociationSet>
+    <AssociationSet Name="ProjectWebsite" Association="AgricathonModel.Store.ProjectWebsite">
+      <End Role="Project" EntitySet="ProjectSet" />
+      <End Role="Website" EntitySet="WebsiteSet" />
+    </AssociationSet>
+    <AssociationSet Name="ProjectProvider" Association="AgricathonModel.Store.ProjectProvider">
+      <End Role="Project" EntitySet="ProjectSet" />
+      <End Role="Provider" EntitySet="ProviderSet" />
+    </AssociationSet>
+    <AssociationSet Name="ProjectLegalForm" Association="AgricathonModel.Store.ProjectLegalForm">
+      <End Role="Project" EntitySet="ProjectSet" />
+      <End Role="LegalForm" EntitySet="LegalFormSet" />
+    </AssociationSet>
+    <AssociationSet Name="ProjectLocation" Association="AgricathonModel.Store.ProjectLocation">
+      <End Role="Project" EntitySet="ProjectSet" />
+      <End Role="Location" EntitySet="LocationSet" />
+    </AssociationSet>
+    <AssociationSet Name="ProjectSpecialist" Association="AgricathonModel.Store.ProjectSpecialist">
+      <End Role="Project" EntitySet="ProjectSet" />
+      <End Role="Specialist" EntitySet="SpecialistSet" />
+    </AssociationSet>
+    <AssociationSet Name="ProjectFinance" Association="AgricathonModel.Store.ProjectFinance">
+      <End Role="Project" EntitySet="ProjectSet" />
+      <End Role="Finance" EntitySet="FinanceSet" />
+    </AssociationSet>
+    <AssociationSet Name="ProjectContact" Association="AgricathonModel.Store.ProjectContact">
+      <End Role="Project" EntitySet="ProjectSet" />
+      <End Role="Contact" EntitySet="ContactSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="SectorSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProviderSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Project_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProjectSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CreationDate" Type="datetime" Nullable="false" />
+    <Property Name="ClosedDate" Type="datetime" Nullable="true" />
+    <Property Name="Activity_Id" Type="int" Nullable="false" />
+    <Property Name="LegalForm_Id" Type="int" Nullable="false" />
+    <Property Name="Location_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LegalFormSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ActivitySet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Sector_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LocationSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WebsiteSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="URL" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Project_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FinanceSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Project_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SpecialistSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Project_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ContactSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Project_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="SectorActivity">
+    <End Role="Sector" Type="AgricathonModel.Store.SectorSet" Multiplicity="1" />
+    <End Role="Activity" Type="AgricathonModel.Store.ActivitySet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sector">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Activity">
+        <PropertyRef Name="Sector_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ActivityProject">
+    <End Role="Activity" Type="AgricathonModel.Store.ActivitySet" Multiplicity="1" />
+    <End Role="Project" Type="AgricathonModel.Store.ProjectSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Activity">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Project">
+        <PropertyRef Name="Activity_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProjectWebsite">
+    <End Role="Project" Type="AgricathonModel.Store.ProjectSet" Multiplicity="1" />
+    <End Role="Website" Type="AgricathonModel.Store.WebsiteSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Website">
+        <PropertyRef Name="Project_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProjectProvider">
+    <End Role="Project" Type="AgricathonModel.Store.ProjectSet" Multiplicity="1" />
+    <End Role="Provider" Type="AgricathonModel.Store.ProviderSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Provider">
+        <PropertyRef Name="Project_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProjectLegalForm">
+    <End Role="Project" Type="AgricathonModel.Store.ProjectSet" Multiplicity="*" />
+    <End Role="LegalForm" Type="AgricathonModel.Store.LegalFormSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="LegalForm">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Project">
+        <PropertyRef Name="LegalForm_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProjectLocation">
+    <End Role="Project" Type="AgricathonModel.Store.ProjectSet" Multiplicity="*" />
+    <End Role="Location" Type="AgricathonModel.Store.LocationSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Location">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Project">
+        <PropertyRef Name="Location_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProjectSpecialist">
+    <End Role="Project" Type="AgricathonModel.Store.ProjectSet" Multiplicity="1" />
+    <End Role="Specialist" Type="AgricathonModel.Store.SpecialistSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Specialist">
+        <PropertyRef Name="Project_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProjectFinance">
+    <End Role="Project" Type="AgricathonModel.Store.ProjectSet" Multiplicity="1" />
+    <End Role="Finance" Type="AgricathonModel.Store.FinanceSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Finance">
+        <PropertyRef Name="Project_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProjectContact">
+    <End Role="Project" Type="AgricathonModel.Store.ProjectSet" Multiplicity="1" />
+    <End Role="Contact" Type="AgricathonModel.Store.ContactSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Contact">
+        <PropertyRef Name="Project_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
