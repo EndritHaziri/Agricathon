@@ -142,7 +142,13 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\DistributionController.cs" />
+    <Compile Include="Controllers\DMController.cs" />
+    <Compile Include="Controllers\ElevageController.cs" />
+    <Compile Include="Controllers\FromageController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PlusieursActivitésController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -185,6 +191,28 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\Search\Distribution.cshtml" />
+    <Content Include="Views\Search\Finance.cshtml" />
+    <Content Include="Views\Search\Spécialistes.cshtml" />
+    <Content Include="Views\Search\Services Cantonaux.cshtml" />
+    <Content Include="Views\Search\Ecoles.cshtml" />
+    <Content Include="Views\DM\ACPDM.cshtml" />
+    <Content Include="Views\DM\VentesEnLigneDM.cshtml" />
+    <Content Include="Views\DM\ReseauxPlateformesDM.cshtml" />
+    <Content Include="Views\Distribution\DistributionMaraichere.cshtml" />
+    <Content Include="Views\Distribution\Elevage.cshtml" />
+    <Content Include="Views\Distribution\Fromage.cshtml" />
+    <Content Include="Views\Distribution\PlusieursActivités.cshtml" />
+    <Content Include="Views\Elevage\ACPElevage.cshtml" />
+    <Content Include="Views\Elevage\VentesEnLigneElevage.cshtml" />
+    <Content Include="Views\Elevage\ReseauxPlateformesElevage.cshtml" />
+    <Content Include="Views\Fromage\ACPFromage.cshtml" />
+    <Content Include="Views\Fromage\ReseauxPlateformesFromage.cshtml" />
+    <Content Include="Views\Fromage\VentesEnLigneFromage.cshtml" />
+    <Content Include="Views\PlusieursActivités\ACPPA.cshtml" />
+    <Content Include="Views\PlusieursActivités\ReseauxPlateformesPA.cshtml" />
+    <Content Include="Views\PlusieursActivités\VentesEnLignesPA.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
